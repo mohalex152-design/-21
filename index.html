@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1220">
+  <meta name="description" content="خمن أعلام العالم واختبر معلوماتك في الدول والأعلام.">
+  <title>خمن أعلام | تحدّي الأعلام العالمي</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" id="brand-home" aria-label="خمن أعلام">
+      <span class="brand-logo" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="earthA" x1="12" y1="8" x2="53" y2="57" gradientUnits="userSpaceOnUse"><stop stop-color="#67D7FF"/><stop offset="1" stop-color="#1262C9"/></linearGradient></defs>
+          <ellipse cx="32" cy="32" rx="29" ry="12" transform="rotate(-32 32 32)" stroke="#F4C95D" stroke-width="3.2"/>
+          <circle cx="32" cy="32" r="22" fill="url(#earthA)" stroke="#D8F3FF" stroke-width="1.4"/>
+          <path d="M17 20l7-4 4 5-3 5-7 1-3 6 5 5 1 7 7 4 3-7 5-4-1-7 7-4 4-7-7-5-5 2-5-5-8 2-4 1z" fill="#40C98A"/>
+          <path d="M32 10c-7 7-10 14-10 22s3 15 10 22M32 10c7 7 10 14 10 22s-3 15-10 22M11 32h42" stroke="#D8F3FF" stroke-opacity=".55" stroke-width="1.2"/>
+          <circle cx="51" cy="12" r="4" fill="#F4C95D" stroke="#FFF0B3" stroke-width="1.2"/>
+        </svg>
+      </span>
+      <span class="brand-name">خمن أعلام</span>
+    </a>
+    <span class="top-label">تحدّي الأعلام العالمي</span>
+  </header>
+
+  <main class="container">
+    <section id="welcome-screen" class="panel welcome-screen">
+      <div class="hero-logo" aria-hidden="true">
+        <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="earthB" x1="23" y1="15" x2="98" y2="101" gradientUnits="userSpaceOnUse"><stop stop-color="#75E1FF"/><stop offset="1" stop-color="#0753B8"/></linearGradient></defs>
+          <ellipse cx="60" cy="60" rx="55" ry="23" transform="rotate(-32 60 60)" stroke="#F4C95D" stroke-width="4"/>
+          <circle cx="60" cy="60" r="42" fill="url(#earthB)" stroke="#D7F5FF" stroke-width="2.5"/>
+          <path d="M31 37l12-8 8 5-3 10-12 3-7 11 7 10 2 12 12 7 5-12 9-7-2-11 12-7 7-12-12-8-9 3-8-8-13 3-6 2z" fill="#48D18D"/>
+          <path d="M60 18c-13 12-19 26-19 42s6 30 19 42M60 18c13 12 19 26 19 42s-6 30-19 42M19 60h82" stroke="#E5F8FF" stroke-opacity=".55" stroke-width="2"/>
+          <circle cx="101" cy="20" r="7" fill="#F4C95D" stroke="#FFF0B3" stroke-width="2"/>
+        </svg>
+      </div>
+      <p class="eyebrow">مستعد للتحدّي؟</p>
+      <h1>خمن أعلام</h1>
+      <p class="subtitle">اختبر نفسك في أعلام العالم</p>
+      <p class="intro">شوف العلم، اختار اسم الدولة الصحيح، واكتشف معلومات جديدة عن العالم.</p>
+      <form id="start-form">
+        <label for="player-name">اسم اللاعب</label>
+        <input id="player-name" type="text" maxlength="24" placeholder="اكتب اسمك هنا" autocomplete="nickname" required>
+        <button class="primary-button" type="submit" id="start-button">متابعة <span aria-hidden="true">←</span></button>
+      </form>
+      <div class="feature-row"><span>🌍 دول وأعلام</span><span>✓ 4 اختيارات</span><span>⌛ مؤقت اختياري</span></div>
+      <div class="continent-floaters" aria-hidden="true">
+        <div class="continent-float continent-africa" data-depth="1"><span class="continent-symbol">🌍</span><b>أفريقيا</b><small>AFRICA</small></div>
+        <div class="continent-float continent-asia" data-depth="2"><span class="continent-symbol">🌏</span><b>آسيا</b><small>ASIA</small></div>
+        <div class="continent-float continent-europe" data-depth="3"><span class="continent-symbol">🌐</span><b>أوروبا</b><small>EUROPE</small></div>
+        <div class="continent-float continent-north" data-depth="2"><span class="continent-symbol">🌎</span><b>أمريكا الشمالية</b><small>NORTH AMERICA</small></div>
+        <div class="continent-float continent-south" data-depth="1"><span class="continent-symbol">🌎</span><b>أمريكا الجنوبية</b><small>SOUTH AMERICA</small></div>
+        <div class="continent-float continent-oceania" data-depth="3"><span class="continent-symbol">🌊</span><b>أستراليا وأوقيانوسيا</b><small>OCEANIA</small></div>
+        <div class="continent-float continent-antarctica" data-depth="2"><span class="continent-symbol">❄️</span><b>القارة القطبية</b><small>ANTARCTICA</small></div>
+      </div>
+    </section>
+
+    <section id="menu-screen" class="panel hidden">
+      <p class="eyebrow">أهلًا <span id="menu-player"></span> 👋</p>
+      <h2>جاهز للجولة؟</h2>
+      <p class="intro">اختار اللي حابب تعمله.</p>
+      <button id="menu-profile" class="menu-profile-card" type="button" aria-label="فتح الملف الشخصي">
+        <span id="menu-profile-avatar" class="menu-profile-avatar">🌍</span>
+        <span class="menu-profile-copy"><b id="menu-profile-name">ملف اللاعب</b><small id="menu-profile-meta">المستوى 1 • 0 XP</small><span class="menu-profile-progress"><i id="menu-profile-progress"></i></span></span>
+        <span class="menu-profile-arrow">←</span>
+      </button>
+      <div class="menu-actions">
+        <button id="menu-start" class="primary-button" type="button">🎮 ابدأ المود الأساسي</button>
+        <button id="menu-online" class="secondary-button" type="button">🌐 العب أونلاين مع صاحبك</button>
+        <button id="menu-shop" class="secondary-button" type="button">🛍️ سوق اللوجوهات والأعلام</button>
+        <button id="menu-settings" class="secondary-button" type="button">⚙️ إعدادات اللعبة</button>
+        <button id="menu-encyclopedia" class="secondary-button" type="button">🌐 موسوعة الدول</button>
+        <button id="menu-daily" class="secondary-button" type="button">📅 تحدي اليوم</button>
+        <button id="menu-review" class="secondary-button" type="button">🧠 راجع أخطاءك</button>
+        <button id="menu-map" class="secondary-button" type="button">🗺️ استكشف خريطة العالم</button>
+        <button id="menu-history" class="secondary-button" type="button">📈 سجل الجولات</button>
+      </div>
+      <button id="menu-modes" class="modes-entry-button" type="button"><span>🕹️</span><span><b>الألعاب الإضافية</b><small>افتح مودات أقوى باستخدام XP واجمع مضاعفات أكبر</small></span><strong>←</strong></button>
+      <p id="country-total" class="muted-note">سيتم تحميل بيانات الدول عند بدء اللعبة.</p>
+    </section>
+
+    <section id="modes-screen" class="panel hidden">
+      <div class="section-heading"><div><p class="eyebrow">تجارب منفصلة</p><h2>اختار مود اللعب</h2></div><span class="heading-icon">🕹️</span></div>
+      <p class="intro">كل مود إضافي له تكلفة فتح ومضاعف XP خاص. اجمع الخبرة في المود الأساسي أو التحدي اليومي وافتح مستويات جديدة.</p><div id="mode-wallet" class="mode-wallet"></div>
+      <div class="mode-grid">
+        <button class="mode-card" data-mode="speed" type="button" data-unlock="100" data-multiplier="2"><span>⚡</span><b>طور السرعة</b><small>10 ثوانٍ لكل سؤال.</small><em class="mode-tier"></em></button>
+        <button class="mode-card" data-mode="continents" type="button" data-unlock="6000" data-multiplier="16"><span>🌍</span><b>مراحل القارات</b><small>تقدّم بين القارات مرحلة بعد مرحلة.</small><em class="mode-tier"></em></button>
+        <button class="mode-card" data-mode="xp" type="button" data-unlock="15000" data-multiplier="30"><span>🏆</span><b>تحدي الخبرة</b><small>اختبر نفسك في جولة مخصصة للخبرة.</small><em class="mode-tier"></em></button>
+        <button class="mode-card" data-mode="map" type="button" data-unlock="2000" data-multiplier="8"><span>🗺️</span><b>تحدي الخرائط</b><small>حدد الدولة من موقعها الجغرافي.</small><em class="mode-tier"></em></button>
+        <button class="mode-card" data-mode="records" type="button"><span>🥇</span><b>الأرقام القياسية</b><small>راجع أفضل نتائجك وسجلاتك المحفوظة.</small></button>
+        <button class="mode-card" data-mode="combo" type="button" data-unlock="4000" data-multiplier="13"><span>🔥</span><b>مود الكومبو</b><small>ضاعف نقاطك مع الإجابات الصحيحة المتتالية.</small><em class="mode-tier"></em></button>
+        <button class="mode-card" data-mode="duo" type="button" data-unlock="12000" data-multiplier="25"><span>👥</span><b>لاعبان على جهاز واحد</b><small>تناوبوا الأدوار وشوفوا مين يكسب.</small><em class="mode-tier"></em></button>
+        <button class="mode-card" data-mode="facts" type="button" data-unlock="8000" data-multiplier="20"><span>📚</span><b>معلومات بعد الإجابة</b><small>تعلم معلومة عن كل دولة.</small><em class="mode-tier"></em></button>
+        <button class="mode-card" data-mode="memory" type="button" data-unlock="1000" data-multiplier="4"><span>🧠</span><b>تحدي الذاكرة</b><small>اختبر ذاكرتك في جولة قصيرة.</small><em class="mode-tier"></em></button>
+        <button class="mode-card" data-mode="daily" type="button"><span>📅</span><b>تحدي اليوم</b><small>10 أسئلة يومية وسجل نتيجة اليوم.</small></button>
+      </div>
+      <section id="records-panel" class="records-panel hidden"><h3>🥇 سجلاتك</h3><div id="records-content"></div></section>
+      <button id="modes-back" class="secondary-button" type="button">رجوع للقائمة</button>
+    </section>
+
+    <section id="online-screen" class="panel hidden">
+      <div class="section-heading"><div><p class="eyebrow">العبوا مع بعض</p><h2>غرف اللعب أونلاين</h2></div><span class="heading-icon">🌐</span></div>
+      <p class="intro">أنشئ غرفة وابعث الكود لصاحبك، أو ادخل كود غرفته. لازم إعداد خدمة Firebase مرة واحدة لتفعيل الاتصال الحقيقي بين الأجهزة.</p>
+      <div class="online-config-notice" id="online-config-notice">جاري فحص إعدادات الاتصال...</div>
+      <div class="online-lobby-actions">
+        <button id="online-create" class="primary-button" type="button">➕ إنشاء غرفة جديدة</button>
+        <div class="online-join-box"><label class="field-label" for="online-room-code">كود الغرفة</label><input id="online-room-code" type="text" maxlength="6" placeholder="مثال: A7K9Q2" autocomplete="off" dir="ltr"><button id="online-join" class="secondary-button" type="button">دخول الغرفة</button></div>
+      </div>
+      <div id="online-room-panel" class="online-room-panel hidden">
+        <div class="online-room-code-wrap"><span>كود الغرفة — ابعته لصاحبك</span><strong id="online-room-code-display" dir="ltr">------</strong><button id="online-copy-code" class="small-button" type="button">نسخ الكود</button></div>
+        <p id="online-room-status" class="muted-note" aria-live="polite">في انتظار اللاعب الآخر...</p>
+        <div id="online-players" class="online-players"></div>
+        <div id="online-question-area" class="online-question-area hidden"></div>
+        <div class="online-room-buttons"><button id="online-start-match" class="primary-button" type="button">ابدأ المباراة</button><button id="online-next-question" class="secondary-button hidden" type="button">السؤال التالي ←</button><button id="online-leave" class="text-button" type="button">مغادرة الغرفة</button></div>
+      </div>
+      <p id="online-error" class="inline-error hidden" role="alert"></p>
+      <button id="online-back" class="secondary-button" type="button">رجوع للقائمة</button>
+    </section>
+
+    <section id="settings-screen" class="panel hidden">
+      <div class="section-heading"><div><p class="eyebrow">خصص التحدّي</p><h2>إعدادات اللعبة</h2></div><span class="heading-icon">⚙️</span></div>
+      <fieldset class="settings-group">
+        <legend>عدد الأسئلة</legend>
+        <div class="option-grid" id="question-count-options">
+          <label class="option-card"><input type="radio" name="question-count" value="10"><span>10 أسئلة</span></label>
+          <label class="option-card"><input type="radio" name="question-count" value="20" checked><span>20 سؤالًا</span></label>
+          <label class="option-card"><input type="radio" name="question-count" value="40"><span>40 سؤالًا</span></label>
+          <label class="option-card"><input type="radio" name="question-count" value="50"><span>50 سؤالًا</span></label>
+          <label class="option-card"><input type="radio" name="question-count" value="100"><span>100 سؤال</span></label>
+          <label class="option-card"><input type="radio" name="question-count" value="all"><span>كل الأعلام</span></label>
+          <label class="option-card custom-count"><input type="radio" name="question-count" value="custom"><span>عدد مخصص</span></label>
+        </div>
+        <label class="field-label" for="custom-count">العدد المخصص (من 1 إلى 196)</label>
+        <input id="custom-count" type="number" min="1" max="196" value="15" inputmode="numeric">
+      </fieldset>
+      <fieldset class="settings-group">
+        <legend>مستوى الصعوبة</legend>
+        <p class="helper-text">اختار مستوى واحد أو فعّل المستويات الثلاثة لخلطها عشوائيًا.</p>
+        <div class="difficulty-list">
+          <label class="difficulty-option"><input type="checkbox" name="difficulty" value="easy" checked><span><b>سهل</b><small>دول وأعلام معروفة أكثر</small></span></label>
+          <label class="difficulty-option"><input type="checkbox" name="difficulty" value="medium"><span><b>متوسط</b><small>تحدّي متوازن</small></span></label>
+          <label class="difficulty-option"><input type="checkbox" name="difficulty" value="hard"><span><b>صعب</b><small>دول أقل شهرة</small></span></label>
+        </div>
+      </fieldset>
+      <fieldset class="settings-group">
+        <legend>القارات</legend>
+        <p class="helper-text">اختار قارة واحدة أو أكثر. اختيار كل القارات يخلط الأسئلة من كل المناطق المتاحة. لا توجد دول ذات سيادة في القارة القطبية الجنوبية.</p>
+        <div class="continent-grid" id="continent-options">
+          <label class="continent-option"><input type="checkbox" name="continent" value="africa" checked><span>🌍 أفريقيا</span></label>
+          <label class="continent-option"><input type="checkbox" name="continent" value="asia" checked><span>🌏 آسيا</span></label>
+          <label class="continent-option"><input type="checkbox" name="continent" value="europe" checked><span>🌍 أوروبا</span></label>
+          <label class="continent-option"><input type="checkbox" name="continent" value="north-america" checked><span>🌎 أمريكا الشمالية</span></label>
+          <label class="continent-option"><input type="checkbox" name="continent" value="south-america" checked><span>🌎 أمريكا الجنوبية</span></label>
+          <label class="continent-option"><input type="checkbox" name="continent" value="oceania" checked><span>🌏 أستراليا وأوقيانوسيا</span></label>
+          <label class="continent-option"><input type="checkbox" name="continent" value="antarctica" checked><span>❄️ القارة القطبية الجنوبية</span></label>
+        </div>
+        <div class="continent-actions"><button type="button" id="select-all-continents" class="small-button">اختيار كل القارات</button><button type="button" id="clear-continents" class="small-button">إلغاء الاختيار</button></div>
+      </fieldset>
+      <fieldset class="settings-group">
+        <legend>مدة الوقت</legend>
+        <p class="helper-text">اختار وقتًا لكل سؤال أو العب من غير مؤقت.</p>
+        <div class="option-grid timer-grid">
+          <label class="option-card"><input type="radio" name="timer-mode" value="10"><span>10 ثوانٍ</span></label>
+          <label class="option-card"><input type="radio" name="timer-mode" value="15"><span>15 ثانية</span></label>
+          <label class="option-card"><input type="radio" name="timer-mode" value="30"><span>30 ثانية</span></label>
+          <label class="option-card"><input type="radio" name="timer-mode" value="40"><span>40 ثانية</span></label>
+          <label class="option-card"><input type="radio" name="timer-mode" value="open" checked><span>مفتوح ∞</span></label>
+        </div>
+      </fieldset>
+      <p id="settings-error" class="inline-error hidden" role="alert"></p>
+      <button id="save-settings" class="primary-button" type="button">حفظ الإعدادات</button>
+      <button id="settings-back" class="secondary-button" type="button">رجوع للقائمة</button>
+    </section>
+
+    <section id="loading-screen" class="panel message-screen hidden" aria-live="polite">
+      <div class="loader"></div><h2>بنجهّز الأعلام...</h2><p>لحظات ونبدأ التحدّي.</p>
+    </section>
+
+    <section id="game-screen" class="panel game-screen hidden">
+      <div class="game-heading">
+        <div><p class="eyebrow">أهلًا <span id="player-display"></span></p><h2>خمن العلم</h2></div>
+        <div class="question-counter"><span id="question-number">1</span><span class="counter-divider">/</span><span id="question-total">20</span><span id="timer-display" class="timer-display hidden" aria-live="off"></span></div>
+      </div>
+      <div class="progress-track" role="progressbar" aria-label="تقدم الجولة" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0" id="progress-track"><div id="progress-bar" class="progress-bar"></div></div>
+      <p class="question-hint" id="question-hint">الدولة صاحبة العلم ده هي إيه؟</p>
+      <p id="mode-status" class="mode-status hidden"></p>
+      <div id="map-challenge" class="map-challenge hidden"></div>
+      <div class="flag-card"><img id="flag-image" src="" alt="علم الدولة" class="flag-image"><p id="flag-fallback" class="hidden">تعذر تحميل العلم. تحقق من اتصال الإنترنت.</p></div>
+      <div id="choices" class="choices"></div>
+      <div id="feedback" class="feedback hidden" role="status" aria-live="polite"></div>
+      <div id="answer-fact" class="answer-fact hidden"></div>
+      <button id="next-button" class="primary-button hidden" type="button">السؤال التالي ←</button>
+      <button id="quit-game" class="text-button" type="button">إنهاء الجولة والعودة للقائمة</button>
+    </section>
+
+    <section id="result-screen" class="panel result-screen hidden">
+      <div class="result-icon" aria-hidden="true">🏆</div><p class="eyebrow">انتهت الجولة</p>
+      <h2>عاش يا <span id="result-player"></span>!</h2><p class="subtitle">دي نتيجتك في تحدّي الأعلام</p>
+      <div class="score-circle"><strong id="final-score">0</strong><span>من 10</span></div>
+      <p id="result-message" class="result-message"></p>
+      <div class="stats-grid">
+        <div class="stat-card"><span class="stat-number correct-text" id="correct-count">0</span><span>إجابة صحيحة</span></div>
+        <div class="stat-card"><span class="stat-number wrong-text" id="wrong-count">0</span><span>إجابة خاطئة</span></div>
+        <div class="stat-card"><span class="stat-number" id="percentage">0%</span><span>نسبة النجاح</span></div>
+      </div>
+      <div id="result-rewards" class="result-rewards" aria-live="polite"></div>
+      <button id="download-result" class="secondary-button" type="button">🖼️ تنزيل بطاقة النتيجة</button>
+      <button id="restart-button" class="primary-button" type="button">العب من جديد ↻</button>
+      <button id="result-menu-button" class="secondary-button" type="button">العودة للقائمة</button>
+    </section>
+
+    <section id="profile-screen" class="panel hidden">
+      <div class="section-heading"><div><p class="eyebrow">مساحتك الخاصة</p><h2>ملف اللاعب والإنجازات</h2></div><span class="heading-icon">👤</span></div>
+      <div class="profile-identity-card">
+        <div class="profile-hero"><div id="profile-avatar" class="profile-avatar" aria-label="صورة الحساب الحالية">🌍</div><div class="profile-identity-copy"><p class="eyebrow">صورة حسابك</p><h3 id="profile-display-name">اللاعب</h3><p id="profile-title-display" class="profile-title">مستكشف الأعلام</p><p id="profile-xp-line" class="muted-note"></p></div></div>
+        <div class="profile-customize-note">🖼️ <span>ده مكان اللوجو اللي هيظهر في حسابك. اختار صورتك واحفظ التغييرات.</span></div>
+      </div>
+      <label class="field-label" for="profile-name-input">اسم اللاعب</label><input id="profile-name-input" type="text" maxlength="24" placeholder="اسمك">
+      <label class="field-label" for="profile-avatar-select">اختار لوجو / صورة الحساب</label><select id="profile-avatar-select" class="search-input"><option>🌍</option><option>🧭</option><option>🏆</option><option>🚀</option><option>🦊</option><option>🐼</option><option>🐉</option><option>⭐</option></select>
+      <p class="muted-note profile-avatar-hint">معاينة الصورة بتتحدث لما تختار لوجو، واضغط «حفظ الملف الشخصي» لتثبيته.</p>
+      <label class="field-label" for="profile-title-select">اللقب</label><select id="profile-title-select" class="search-input"><option value="مستكشف الأعلام">مستكشف الأعلام</option><option value="خبير أفريقيا">خبير أفريقيا</option><option value="صياد الأعلام">صياد الأعلام</option><option value="سريع البديهة">سريع البديهة</option><option value="أسطورة الخرائط">أسطورة الخرائط</option><option value="بطل الأعلام">بطل الأعلام</option></select>
+      <button id="save-profile" class="primary-button" type="button">حفظ الملف الشخصي</button>
+      <section class="shop-panel" aria-labelledby="shop-title">
+        <div class="shop-heading"><div><p class="eyebrow">سوقك الخاص</p><h3 id="shop-title">🛍️ اللوجوهات والأعلام والإطارات</h3></div><div class="shop-wallet"><span>🪙</span><b id="shop-coins">0</b><small>عملة سوق</small></div></div>
+        <p class="muted-note shop-note">العملات منفصلة عن XP وفتح المودات. كل 100 XB قابلة للصرف = عملة سوق واحدة. هذه النسخة تحفظ المشتريات محليًا لكل اسم لاعب على هذا المتصفح.</p>
+        <div class="shop-convert"><label for="xb-convert-amount">حوّل XB إلى عملات السوق</label><div><input id="xb-convert-amount" type="number" min="100" step="100" value="100"><button id="xb-convert-button" class="secondary-button" type="button">تحويل</button></div><small id="shop-xb-balance">رصيد XB: 0</small></div>
+        <div class="shop-tabs"><button type="button" class="shop-tab active" data-shop-category="arab">أعلام عربية</button><button type="button" class="shop-tab" data-shop-category="world">أعلام العالم</button><button type="button" class="shop-tab" data-shop-category="history">شخصيات تاريخية</button><button type="button" class="shop-tab" data-shop-category="frames">إطارات</button><button type="button" class="shop-tab" data-shop-category="effects">شعارات وإضافات</button><button type="button" class="shop-tab" data-shop-category="owned">مقتنياتي</button></div>
+        <div id="shop-items" class="shop-items" aria-live="polite"></div>
+        <p id="shop-message" class="shop-message" role="status"></p>
+      </section>
+      <div class="profile-progress"><div><b id="profile-level">المستوى 1</b><span id="profile-next-level">0 / 100 XP</span></div><div class="progress-track"><div id="profile-xp-bar" class="progress-bar"></div></div></div>
+      <h3>🏅 إنجازاتك</h3><div id="achievements-grid" class="achievements-grid"></div>
+      <button class="secondary-button back-menu" type="button">رجوع للقائمة</button>
+    </section>
+    <section id="review-screen" class="panel hidden"><div class="section-heading"><div><p class="eyebrow">تعلم من كل جولة</p><h2>راجع الدول التي أخطأت فيها</h2></div><span class="heading-icon">🧠</span></div><p class="intro">هنا هتلاقي الدول اللي محتاج تراجع أعلامها. القائمة محفوظة على جهازك.</p><div id="review-list" class="review-list"></div><button id="review-practice" class="primary-button" type="button">تدرّب على الأخطاء</button><button class="secondary-button back-menu" type="button">رجوع للقائمة</button></section>
+    <section id="history-screen" class="panel hidden"><div class="section-heading"><div><p class="eyebrow">رحلتك في اللعبة</p><h2>سجل الجولات</h2></div><span class="heading-icon">📈</span></div><div id="history-summary" class="stats-grid"></div><div id="history-list" class="history-list"></div><button class="secondary-button back-menu" type="button">رجوع للقائمة</button></section>
+    <section id="world-map-screen" class="panel hidden"><div class="section-heading"><div><p class="eyebrow">استكشف الكوكب</p><h2>خريطة العالم التفاعلية</h2></div><span class="heading-icon">🗺️</span></div><p class="intro">اختار قارة ودولة لعرض موقعها على الخريطة. الخريطة تحتاج اتصالًا بالإنترنت.</p><div id="world-continent-buttons" class="continent-grid"><button class="small-button" data-world-continent="africa">🌍 أفريقيا</button><button class="small-button" data-world-continent="asia">🌏 آسيا</button><button class="small-button" data-world-continent="europe">🌍 أوروبا</button><button class="small-button" data-world-continent="north-america">🌎 أمريكا الشمالية</button><button class="small-button" data-world-continent="south-america">🌎 أمريكا الجنوبية</button><button class="small-button" data-world-continent="oceania">🌊 أوقيانوسيا</button></div><label class="field-label" for="world-country-select">اختار دولة</label><select id="world-country-select" class="search-input"><option value="">حمّل بيانات الدول أولًا...</option></select><div id="world-map-frame-wrap" class="map-challenge hidden"></div><p id="world-map-detail" class="muted-note"></p><button class="secondary-button back-menu" type="button">رجوع للقائمة</button></section>
+
+    <section id="encyclopedia-screen" class="panel hidden">
+      <div class="section-heading"><div><p class="eyebrow">اعرف أكتر</p><h2>موسوعة الدول</h2></div><span class="heading-icon">🌐</span></div>
+      <p class="intro encyclopedia-intro">ابحث عن الدولة لتشاهد اسمها بالعربي والإنجليزي، وصورة علمها، وعاصمتها، وموقعها على الخريطة، ومعلومة مهمة عن معلم أو إنجاز أو طبيعة مميزة فيها.</p>
+      <label class="sr-only" for="country-search">ابحث عن دولة</label>
+      <input id="country-search" class="search-input" type="search" placeholder="ابحث بالعربي أو بالإنجليزي...">
+      <p id="encyclopedia-status" class="muted-note" aria-live="polite">جاري تحميل الدول...</p>
+      <div id="country-grid" class="country-grid"></div>
+      <button id="encyclopedia-back" class="secondary-button" type="button">رجوع للقائمة</button>
+    </section>
+
+    <p id="error-message" class="error-message hidden" role="alert"></p>
+  </main>
+
+  <footer class="footer"><span>خمن أعلام</span><span>اختبر نفسك في الأعلام 🌍</span></footer>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="countries-data.js"></script>
+  <script src="script.js"></script>
+  <script src="multiplayer.js"></script>
+<script>
+(() => {
+  "use strict";
+
+  const form = document.getElementById("start-form");
+  const nameInput = document.getElementById("player-name");
+  const welcomeScreen = document.getElementById("welcome-screen");
+  const menuScreen = document.getElementById("menu-screen");
+  const menuPlayer = document.getElementById("menu-player");
+  const errorMessage = document.getElementById("error-message");
+
+  if (!form || !nameInput || !welcomeScreen || !menuScreen) {
+    console.error("تعذر العثور على عناصر صفحة الدخول.");
+    return;
+  }
+
+  // دخول محلي فقط؛ لا يحتاج قاعدة بيانات أو حساب أونلاين.
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const playerName = nameInput.value.trim().slice(0, 24);
+
+    if (!playerName) {
+      nameInput.focus();
+      return;
+    }
+
+    // حفظ الاسم على نفس الجهاز، لو المتصفح سمح بذلك.
+    try {
+      localStorage.setItem("guessFlagsPlayerName", playerName);
+    } catch (error) {
+      console.warn("تعذر حفظ الاسم، لكن يمكن متابعة اللعب.", error);
+    }
+
+    if (typeof activateLocalAccount === "function") {
+      try { activateLocalAccount(playerName); } catch (e) { console.warn(e); }
+    }
+
+    if (typeof window.onPlayerLogin === "function") {
+      try { window.onPlayerLogin(playerName); } catch (e) { console.warn(e); }
+    }
+
+    if (menuPlayer) {
+      menuPlayer.textContent = playerName;
+    }
+
+    welcomeScreen.classList.add("hidden");
+    menuScreen.classList.remove("hidden");
+
+    if (errorMessage) {
+      errorMessage.classList.add("hidden");
+      errorMessage.textContent = "";
+    }
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+})();
+</script>
+</body>
+</html>
